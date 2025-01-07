@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Anime Fanbase</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #1a1a1a, #242424);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: #99ccff;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #6699ff;
+    }
+
+    /* Container */
+    .services-container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* Header */
+    .services-header {
+      text-align: center;
+      padding-top: 3%;
+    }
+
+    .services-header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #6699ff, #99ccff);
+     -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .services-header p {
+      font-size: 1.2rem;
+      color: #bbbbbb;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* Service Card */
+    .service-card {
+      background: #2a2a2a;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(102, 153, 255, 0.5);
+    }
+
+    .service-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #99ccff;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #cccccc;
+    }
+
+    .service-card button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(to right, #6699ff, #99ccff);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .service-card button:hover {
+      background: linear-gradient(to right, #99ccff, #6699ff);
+      transform: scale(1.05);
+    }
+
+    /* Footer Section */
+    .services-footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #bbbbbb;
+    }
+
+    .services-footer a {
+      color: #99ccff;
+    }
+
+    /* Responsive Fixes */
+    @media screen and (max-width: 768px) {
+      .services-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .services-header p {
+        font-size: 1rem;
+      }
+
+      .service-card img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .services-header h1 {
+        font-size: 2rem;
+      }
+
+      .service-card h2 {
+        font-size: 1.2rem;
+      }
+
+      .service-card p {
+        font-size: 0.9rem;
+      }
+
+      .service-card button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+
+  /*                                                        Navbar Styles                              */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed; /* Makes the navbar stick to the top */
+        top: 0;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.9); /* Solid dark background with slight transparency */
+        color: white;
+        padding: 4px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for better visibility */
+    }
+    
+    .navbar .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #e94560; /* Anime Era color */
+        text-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .navbar .nav-middle {
+      margin-left: 20%;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .nav-middle .dropdown {
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+    .nav-middle .dropdown .drop-btn {
+        font-size: 1em;
+        font-family:cursive;
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background: transparent;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    
+    .nav-middle .dropdown:hover .drop-btn,
+    .nav-middle .dropdown .drop-btn:hover {
+        background-color: #e94560;
+        color: #ffffff;
+        box-shadow: 0 4px 8px rgb(233, 69, 96);
+    }
+    
+    .nav-middle .dropdown::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -20px;
+        border-radius: 100%;
+        transition: all 0.3s;
+        background: transparent;
+        opacity: 0;
+        z-index: -1;
+    }
+    
+    .nav-middle .dropdown:hover::before {
+        opacity: 1;
+    }
+    
+    .nav-middle .dropdown .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width:150px; 
+        background: #000000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 10;
+    }
+    
+    .nav-middle .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .nav-middle .dropdown .dropdown-content a {
+        display: block;
+        font-family:cursive;
+        font-size: 15px;
+        padding: 10px 15px;
+        color: #e0e0e0;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.05);
+        transition: background-color 0.7s, color 100s;
+    }
+    
+    .nav-middle .dropdown .dropdown-content a:hover {
+        background-color: #e94560;
+        color: #ffffff;
+    }
+    
+    .navbar .nav-right {
+        display: inline-block;
+        gap: 15px;
+        margin-right: -10%;
+    }
+    
+    .nav-right .btn {
+        padding: 10px 20px;
+        font-family:cursive;
+        font-size: 1em;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0);
+        border: 2px solid #e9456000;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    
+    .nav-right .btn:hover {
+        background-color: #e94560;
+        color: #ffffff;
+        box-shadow: 0 4px 8px rgba(233, 69, 96, 0.4);
+    }
+    
+    /* Media Queries for Responsiveness */
+    
+    /* Mobile Devices */
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 4px 10px;
+        }
+    
+        .navbar .logo {
+            font-size: 1.4em;
+        }
+    
+        .navbar .nav-middle {
+            display: none; /* Hide middle nav links on mobile */
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    
+        .navbar .nav-right {
+          display: none ;
+            flex-direction: column;
+            gap: 10px;
+        }
+    
+        .navbar .nav-middle.active {
+            display: flex; /* Show middle nav links when active */
+        }
+    
+        /* Hamburger icon for mobile */
+        .navbar .toggle-btn {
+            display: block;
+            cursor: pointer;
+        }
+    
+        .navbar .toggle-btn span {
+          border-radius: 30%;
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: #fff;
+        }
+    
+        /* Hide buttons on mobile */
+        .nav-right .btn {
+            padding: 8px 15px;
+        }
+    }
+    
+    /* Tablet and larger screens */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .navbar {
+            padding: 4px 15px;
+        }
+    
+        .navbar .logo {
+            font-size: 1.6em;
+        }
+    
+        .navbar .nav-middle {
+            gap: 30px;
+        }
+    
+        .navbar .nav-right .btn {
+            padding: 10px 18px;
+        }
+    }
+    
+    /* Laptop and larger screens */
+    @media (min-width: 1025px) {
+        .navbar {
+            padding: 4px 20px;
+        }
+    
+        .navbar .logo {
+            font-size: 1.8em;
+        }
+    
+        .navbar .nav-middle {
+            gap: 40px;
+        }
+    }
+
+
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .header {
+        text-align: center;
+        padding: 60px 0;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+        color: #58a6ff;
+        text-shadow: 0 0 15px #58a6ff;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        color: #8b949e;
+    }
+
+    .about-section {
+        margin: 40px 0;
+        padding: 25px;
+        background: #161b22;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(88, 166, 255, 0.3);
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+        color: #58a6ff;
+        margin-bottom: 15px;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+        color: #c9d1d9;
+    }
+
+    .team-section {
+        margin: 50px 0;
+    }
+
+    .team-section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #58a6ff;
+        margin-bottom: 30px;
+    }
+
+    .team {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .team-member {
+        background: #161b22;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(88, 166, 255, 0.3);
+        width: 260px;
+    }
+
+    .team-member img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 2px solid #58a6ff;
+    }
+
+    .team-member h3 {
+        color: #58a6ff;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    .team-member p {
+        font-size: 1rem;
+        color: #8b949e;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #0d1117;
+        color: #8b949e;
+        border-top: 1px solid #21262d;
+    }
+
+    footer a {
+        color: #58a6ff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <!-- Left Side -->
+    <div class="logo">ANIME ERA</div>
+
+    <!-- Middle Navigation -->
+    <div class="nav-middle">
+        <div class="dropdown">
+            <div class="drop-btn">Anime</div>
+            <div class="dropdown-content">
+                <a href="#">Popular Anime</a>
+                <a href="#">Upcoming Anime</a>
+                <a href="#">Top-Rated</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="drop-btn">Manga</div>
+            <div class="dropdown-content">
+                <a href="#">Popular Manga</a>
+                <a href="#">New Releases</a>
+                <a href="#">Top-Rated</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="drop-btn">Character</div>
+            <div class="dropdown-content">
+                <a href="#">Main Characters</a>
+                <a href="#">Villains</a>
+                <a href="#">Fan Favorites</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="drop-btn">Community</div>
+            <div class="dropdown-content">
+                <a href="#">Forums</a>
+                <a href="#">Events</a>
+                <a href="#">Fan Clubs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side Buttons -->
+    <div class="nav-right">
+        <a href="Index.html"><button class="btn">Home</button></a>
+        <a href="login.html"><button class="btn">Login</button></a>
+    </div>
+
+    <!-- Hamburger Icon for Mobile -->
+    <div class="toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+
+
+
+  <div class="services-container">
+    <!-- Header Section -->
+    <div class="services-header">
+      <h1>Our Services</h1>
+      <p>
+        We offer a variety of services to make your anime experience unforgettable. Explore and enjoy!
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="pach.jpg" alt="Streaming">
+        <h2>Anime Streaming</h2>
+        <p>Watch your favorite anime series and movies in HD with zero interruptions.</p>
+        <button>Learn More</button>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <img src="https://img.icons8.com/doodle/80/000000/book.png" alt="Manga">
+        <h2>Read Manga</h2>
+        <p>Access thousands of manga chapters, updated regularly for our fans.</p>
+        <button>Explore Now</button>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <img src="https://img.icons8.com/doodle/80/000000/chat.png" alt="Community">
+        <h2>Fan Community</h2>
+        <p>Join our global anime community to discuss, share, and connect with others.</p>
+        <button>Join Us</button>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <img src="https://img.icons8.com/doodle/80/000000/shopping-cart.png" alt="Merchandise">
+        <h2>Merchandise Store</h2>
+        <p>Shop for anime-themed apparel, posters, and accessories.</p>
+        <button>Shop Now</button>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card">
+        <img src="https://img.icons8.com/doodle/80/000000/news.png" alt="News">
+        <h2>Anime News</h2>
+        <p>Stay up to date with the latest news, releases, and updates from the anime world.</p>
+        <button>Read More</button>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card">
+        <img src="https://img.icons8.com/doodle/80/000000/calendar.png" alt="Events">
+        <h2>Exclusive Events</h2>
+        <p>Participate in anime conventions, meet-ups, and other exciting events.</p>
+        <button>Discover Events</button>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="services-footer">
+      <p>
+        © 2024 Anime Fanbase. All Rights Reserved. | <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
